@@ -9,16 +9,7 @@ public class TestingMain {
         // tu umieść kolejny test ->
         System.out.println("Test - for *Calculator* class:");
 
-        Calculator calculatorTest = new Calculator(3,1);
-
-        int argumentA = calculatorTest.getA();
-        int argumentB = calculatorTest.getB();
-
-        if (argumentA==3 && argumentB==1) {
-            System.out.println("test OK");
-        } else {
-            System.out.println("compering arguments error!");
-        }
+        Calculator calculatorTest = new Calculator();
 
         int addResult = calculatorTest.add(3, 1);
         int subtractResult = calculatorTest.subtract(3, 1);
