@@ -10,9 +10,6 @@ public class BookLibrary {
         this.libraryDatabase=libraryDatabase;
     }
 
-
-
-
     // lists books having title beginning with titleFragment
     public List<Book> listBooksWithCondition(String titleFragment) {
         List<Book> bookList = new ArrayList<>();

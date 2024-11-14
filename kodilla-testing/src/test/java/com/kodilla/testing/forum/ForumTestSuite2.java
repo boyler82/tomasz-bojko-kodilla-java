@@ -3,7 +3,7 @@ import com.kodilla.testing.user.SimpleUser;
 
 import org.junit.jupiter.api.*;
 
-class ForumTestSuite {
+class ForumTestSuite2 {
     @BeforeEach
     public void before() {
         System.out.println("Test Case: begin");

@@ -11,5 +11,5 @@ public interface Statistics {
     // total quantity of forum posts
 
     int commentsCount();
-    // total quantity of forum comments
+
 }
