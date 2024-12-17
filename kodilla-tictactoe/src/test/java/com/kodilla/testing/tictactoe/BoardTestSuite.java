@@ -119,7 +119,7 @@ public class BoardTestSuite {
     }
 
     @Nested
-    @DisplayName("Testing Win conditions")
+    @DisplayName("Testing Win conditions") // do poprawy pokazuje zwyciestwo zlego gracza
     class TestCheckWin {
         private Board board;
 

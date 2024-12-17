@@ -15,24 +15,55 @@ public class Game {
         userInput = new UserController();
     }
 
-    public void startGame() {
-        initializePlayers();
-
-        while (!board.checkWin() && !board.isFull()) {
-            board.printBoard();
-            System.out.println(currentPlayer.getName() + "'s turn (" + currentPlayer.getPlayerMark() + ")");
-            handlePlayerMove();
-            switchPlayer();
-        }
-
-        endGame();
+    public Board getBoard() {
+        return board;
     }
 
-    private void initializePlayers() {
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
+    public void setCurrentPlayer(Player currentPlayer) {
+        this.currentPlayer = currentPlayer;
+    }
+
+    public Player getPlayer1() {
+        return player1;
+    }
+
+    public void setPlayer1(Player player1) {
+        this.player1 = player1;
+    }
+
+    public Player getPlayer2() {
+        return player2;
+    }
+
+    public void setPlayer2(Player player2) {
+        this.player2 = player2;
+    }
+
+    public UserController getUserInput() {
+        return userInput;
+    }
+
+    public void setUserInput(UserController userInput) {
+        this.userInput = userInput;
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public void initializePlayers(char playerSign) {
         System.out.println("Initializing players...");
-        char symbol1 = Character.toUpperCase(userInput.firstInputForPlayer());
-        player1.setName(Character.toString(symbol1));
-        player1.setPlayerMark(symbol1);
+        if (playerSign != 'X' && playerSign != 'O') {
+            player1.setName("X");
+            player1.setPlayerMark('X');
+        } else {
+            player1.setName(Character.toString(playerSign));
+            player1.setPlayerMark(playerSign);
+        }
 
         if (player1.getPlayerMark() == 'X') {
             player2.setName("O");
@@ -43,9 +74,8 @@ public class Game {
         }
     }
 
-    private void handlePlayerMove() {
+    public void handlePlayerMove(int position) {
         while (true) {
-            int position = userInput.userInputPosition();
             if (board.isPositionValid(position)) {
                 board.setMarkOnBoard(currentPlayer, position);
                 break;
@@ -56,14 +86,14 @@ public class Game {
     }
 
 
-    private void switchPlayer() {
+    public void switchPlayer() {
         currentPlayer = (currentPlayer == player1) ? player2 : player1;
     }
 
-    private void endGame() {
+    public void endGame() {
         board.printBoard();
         if (board.checkWin()) {
-            System.out.println(currentPlayer.getName() + " wins!");
+            System.out.println("Player '" + currentPlayer.getName() + "' wins!");
         } else {
             System.out.println("It's a draw!");
         }

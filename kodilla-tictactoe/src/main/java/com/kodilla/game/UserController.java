@@ -28,6 +28,7 @@ public class UserController {
             String input = scanner.nextLine();
 
             if (input.length() == 1) {
+                input = input.toUpperCase();
                 userInput = input.charAt(0);
                 break;
             } else {

@@ -3,8 +3,6 @@ package com.kodilla.game;
 public class Board {
     private int boardSize;
     private char[][] board;
-    private Player player1;
-    private Player player2;
 
 
     public int getBoardSize() {
@@ -19,6 +17,10 @@ public class Board {
                 board[i][j] = '_';
             }
         }
+    }
+
+    public char getPositionOnBoard(int i, int j) {
+        return board[i][j];
     }
 
     public char[][] getBoard() {
@@ -39,13 +41,6 @@ public class Board {
         }
     }
 
-    public void setPlayer(Player player) {
-        if (player1 == null) {
-            player1 = player;
-        } else {
-            player2 = player;
-        }
-    }
 
     public boolean isFull() {
         for (int i = 0; i < boardSize; i++) {
@@ -60,7 +55,7 @@ public class Board {
 
     public void setMarkOnBoard(Player player, int position) {
         if (position < 0 || position >= boardSize * boardSize) {
-            throw new IndexOutOfBoundsException("Position out off board size.");
+            throw new IndexOutOfBoundsException("Position outside board size.");
         }
 
         int row = position / boardSize;
@@ -106,8 +101,6 @@ public class Board {
         int col = position % boardSize;
         return board[row][col] == '_';
     }
-
-
 
 
 }
