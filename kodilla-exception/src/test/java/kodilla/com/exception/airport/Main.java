@@ -6,19 +6,19 @@ import java.util.Optional;
 
 public class Main {
     public static void main(String[] args) {
-        // Tworzenie obiektu DestinationChecker
+
         DestinationChecker destinationChecker = new DestinationChecker();
 
-        // Dodawanie lotnisk
+
         destinationChecker.addDestination("JFK", true);
         destinationChecker.addDestination("LAX", true);
         destinationChecker.addDestination("ORD", false);
         destinationChecker.addDestination("WAW", true);
 
-        // Tworzenie lotów
+
         Flight flight1 = new Flight("WAW", "JFK");
         Flight flight2 = new Flight("WAW", "ORD");
-        Flight flight3 = new Flight("WAW", "LHR"); // Lotnisko nie istnieje w mapie
+        Flight flight3 = new Flight("WAW", "LHR");
 
         List<Flight> flightList = new ArrayList<>();
         flightList.add(flight1);
