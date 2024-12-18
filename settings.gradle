@@ -6,4 +6,5 @@ include 'kodilla-exeption'
 include 'kodilla-exception'
 include 'kodilla-tictactoe'
 include 'kodilla-good-patterns'
-
+include 'kodilla-spring-intro'
+include 'kodilla-spring'
