@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 public class CalculatorTestSuite {
@@ -24,16 +25,16 @@ public class CalculatorTestSuite {
         double valueSub = calculator.sub(2,2);
         double valueMul = calculator.mul(2,2);
         double valueDiv = calculator.div(2,2);
-
-//        mozemy pogadac na spotkniu jak to zrobic...
-//        double valueDivWithZero = calculator.div(2,0);
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            calculator.div(10, 0);
+        });
 
 //        Then
         assertEquals(4.0, valueAdd);
         assertEquals(0, valueSub);
         assertEquals(4.0, valueMul);
         assertEquals(1, valueDiv);
-//        assertEquals(IllegalArgumentException.class, valueDivWithZero)
+        assertEquals("Division by zero error.", exception.getMessage());
 
 
     }
