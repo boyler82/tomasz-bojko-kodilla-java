@@ -127,8 +127,8 @@ public class GameTestSuite {
 
         assertTrue(board.checkWin(),"Confirmed winner");
         assertFalse(board.isFull(),"Board is not full");
-        assertTrue(game.getCurrentPlayer()==player1,"X is a winner");
-        assertFalse(game.getCurrentPlayer()==player2);
+        assertEquals(game.getCurrentPlayer(), player1, "X is a winner");
+        assertNotEquals(game.getCurrentPlayer(), player2, "O is not a winner");
 
     }
 
@@ -164,7 +164,7 @@ public class GameTestSuite {
 
         assertFalse(board.checkWin(),"NOT Confirmed winner");
         assertTrue(board.isFull(),"Board is full");
-        assertTrue(game.getCurrentPlayer()==player1);
-        assertFalse(game.getCurrentPlayer()==player2);
+        assertEquals(game.getCurrentPlayer(), player1);
+        assertNotEquals(game.getCurrentPlayer(), player2);
     }
 }
