@@ -2,6 +2,7 @@ package com.kodilla.patterns.singleton;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class LoggerTestSuit {
 
     private Logger logger;
