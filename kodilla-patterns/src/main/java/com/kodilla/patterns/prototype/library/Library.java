@@ -6,10 +6,11 @@ import java.util.Set;
 public class Library extends Prototype<Library> {
 
     private String name;
-    final Set<Book> books = new HashSet<>();
+    private Set<Book> books;
 
     public Library(final String name) {
         this.name = name;
+        this.books = new HashSet<>();
     }
 
     public void setName(String name) {
@@ -19,7 +20,6 @@ public class Library extends Prototype<Library> {
     public String getName() {
         return name;
     }
-
 
     public Set<Book> getBooks() {
         return books;
@@ -39,9 +39,10 @@ public class Library extends Prototype<Library> {
 
     public Library deepCopy() throws CloneNotSupportedException {
         Library deepCopyLibrary = super.clone();
-        deepCopyLibrary.getBooks().clear();
+        deepCopyLibrary.books = new HashSet<>();
         for (Book book : books) {
-            deepCopyLibrary.getBooks().add(book);
+            Book copiedBook = new Book(book.getTitle(), book.getAuthor(), book.getPublicationDate());
+            deepCopyLibrary.books.add(copiedBook);
         }
         return deepCopyLibrary;
     }

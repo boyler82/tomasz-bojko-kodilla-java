@@ -14,47 +14,45 @@ public class LibraryTestSuite {
 
     @Test
     void testGetBooks() {
-//        Given
-        Library library = new Library("Sklodowska-Curie Library");
-        library.getBooks().add(new Book("Title 1", "Author A.", LocalDate.of(2001,01,01)));
-        library.getBooks().add(new Book("Title 2", "Author B.", LocalDate.of(2002,01,01)));
-        library.getBooks().add(new Book("Title 3", "Author C.", LocalDate.of(2003,01,01)));
+            // Given
+            Library library = new Library("Sklodowska-Curie Library");
+            library.getBooks().add(new Book("Title 1", "Author A.", LocalDate.of(2001, 1, 1)));
+            library.getBooks().add(new Book("Title 2", "Author B.", LocalDate.of(2002, 1, 1)));
+            library.getBooks().add(new Book("Title 3", "Author C.", LocalDate.of(2003, 1, 1)));
 
-        Library shallowCloneLibrary = null;
+            Library shallowCloneLibrary = null;
+            Library deepCloneLibrary = null;
 
-        try {
-            shallowCloneLibrary = library.shallowCopy();
-            shallowCloneLibrary.setName("Shallow Clone Library");
-        } catch (CloneNotSupportedException e) {
-            System.out.println(e);
-        }
+            try {
+                shallowCloneLibrary = library.shallowCopy();
+                shallowCloneLibrary.setName("Shallow Clone Library");
+            } catch (CloneNotSupportedException e) {
+                System.out.println(e);
+            }
 
-        Library deepClone = null;
+            try {
+                deepCloneLibrary = library.deepCopy();
+                deepCloneLibrary.setName("Deep Clone Library");
+            } catch (CloneNotSupportedException e) {
+                throw new RuntimeException(e);
+            }
 
-        try {
-            deepClone = library.deepCopy();
-            deepClone.setName("Deep Clone Library");
-        } catch (CloneNotSupportedException e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println(library.toString());
-        System.out.println(shallowCloneLibrary.toString());
-        System.out.println(deepClone.toString());
+            System.out.println("Original Library: " + library);
+            System.out.println("Shallow Clone Library: " + shallowCloneLibrary);
+            System.out.println("Deep Clone Library: " + deepCloneLibrary);
 
-//          When
-//        library.getBooks().add(new Book("Title 4", "Author S.", LocalDate.of(2003,01,01)));
-        System.out.println(library.books.size()+" "+shallowCloneLibrary.books.size()+" "+deepClone.books.size());
-//          Then
-//        assertTrue(library.books.size()==4);
-        assertEquals(library.getBooks(),shallowCloneLibrary.getBooks());
-//        assertTrue(deepClone.books.size()==3);
+            // When
+            library.getBooks().add(new Book("Title 4", "Author S.", LocalDate.of(2004, 1, 1)));
 
+            System.out.println("\nAfter Adding New Book to Original:");
+            System.out.println("Original Library: " + library);
+            System.out.println("Shallow Clone Library: " + shallowCloneLibrary);
+            System.out.println("Deep Clone Library: " + deepCloneLibrary);
 
-        System.out.println("---------");
-        System.out.println(library.toString());
-        System.out.println(shallowCloneLibrary.toString());
-        System.out.println(deepClone.toString());
+            // Then
+            assertEquals(4, library.getBooks().size());
+            assertEquals(4, shallowCloneLibrary.getBooks().size());
+            assertEquals(3, deepCloneLibrary.getBooks().size());
 
     }
-
 }
