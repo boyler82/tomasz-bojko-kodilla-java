@@ -3,6 +3,7 @@ package com.kodilla.patterns.builder.bigMac;
 import java.util.ArrayList;
 
 import java.util.List;
+import java.util.Objects;
 
 public class BigMac {
 
@@ -55,6 +56,8 @@ public class BigMac {
                 ", ingredients=" + ingredients +
                 '}';
     }
+
+
 
     public static class Builder {
         private Bun bun;
