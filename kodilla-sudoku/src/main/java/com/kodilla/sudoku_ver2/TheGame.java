@@ -1,8 +1,5 @@
-package com.kodilla.sudoku_ver2
-        ;
-import java.util.Collections;
-import java.util.ArrayList;
-import java.util.List;
+package com.kodilla.sudoku_ver2;
+
 import java.util.Objects;
 import java.util.Scanner;
 

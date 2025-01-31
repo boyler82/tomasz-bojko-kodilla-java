@@ -6,7 +6,6 @@ public class SudokuBoard {
     private final Field[][] sudokuBoard;
     private static final int SIZE = 9;
 
-
     SudokuValidator validator = new SudokuValidator(); // Walidator planszy
 
     public SudokuBoard() {
@@ -22,12 +21,12 @@ public class SudokuBoard {
         }
     }
 
-    // 🔹 Pobranie pustej planszy Sudoku
+    // Pobranie pustej planszy Sudoku
     public Field[][] getEmptySudokuBoard() {
         return sudokuBoard;
     }
 
-    // 🔹 Generowanie poprawnej losowej planszy Sudoku
+    // Generowanie poprawnej losowej planszy Sudoku
     public Field[][] getRandomSudokuBoard() {
         SudokuSolver solver = new SudokuSolver(validator);
         Random random = new Random();
@@ -54,7 +53,7 @@ public class SudokuBoard {
     }
 
 
-    // 🔹 Resetowanie planszy
+    // Resetowanie planszy
     private void clearBoard() {
         for (int row = 0; row < SIZE; row++) {
             for (int col = 0; col < SIZE; col++) {
@@ -63,7 +62,7 @@ public class SudokuBoard {
         }
     }
 
-    // 🔹 Sprawdzenie poprawności wstawienia wartości (brak kolizji)
+    // Sprawdzenie poprawności wstawienia wartości (brak kolizji)
     private boolean isValidPlacement(int row, int col, int num) {
         for (int i = 0; i < SIZE; i++) {
             if (sudokuBoard[row][i].getValue() == num ||
@@ -84,39 +83,39 @@ public class SudokuBoard {
         return true;
     }
 
-    // 🔹 Pobieranie rozmiaru planszy
+    // Pobieranie rozmiaru planszy
     public int getSIZE() {
         return SIZE;
     }
 
-    // 🔹 Obliczanie ID boxa na podstawie wiersza i kolumny
+    // Obliczanie ID boxa na podstawie wiersza i kolumny
     private int calculateBoxId(int row, int col) {
         int boxRow = row / 3;
         int boxCol = col / 3;
         return boxRow * 3 + boxCol + 1;
     }
 
-    // 🔹 Pobranie całej planszy
+    // Pobranie całej planszy
     public Field[][] getBoard() {
         return sudokuBoard;
     }
 
-    // 🔹 Pobranie konkretnego pola
+    // Pobranie konkretnego pola
     public Field getField(int row, int col) {
         return sudokuBoard[row][col];
     }
 
-    // 🔹 Ustawienie wartości w polu Sudoku
+    // Ustawienie wartości w polu Sudoku
     public void setFieldValue(int row, int col, int value) {
         sudokuBoard[row][col].setValue(value);
     }
 
-    // 🔹 Resetowanie dostępnych wartości w polu
+    // Resetowanie dostępnych wartości w polu
     public void resetField(int row, int col) {
         sudokuBoard[row][col].resetAvailableNumbers();
     }
 
-    // 🔹 Wyświetlenie planszy Sudoku
+    // Wyświetlenie planszy Sudoku
     public void printBoard() {
         System.out.println("╔═══════╦═══════╦═══════╗");
         for (int row = 0; row < SIZE; row++) {
@@ -136,7 +135,7 @@ public class SudokuBoard {
         System.out.println("╚═══════╩═══════╩═══════╝");
     }
 
-    // 🔹 Wyświetlenie dostępnych liczb dla każdego pola (debugowanie)
+    // Wyświetlenie dostępnych liczb dla każdego pola (debugowanie)
     public void printAvailableNumbers() {
         for (int row = 0; row < SIZE; row++) {
             for (int col = 0; col < SIZE; col++) {

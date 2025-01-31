@@ -1,6 +1,5 @@
 package com.kodilla.sudoku_ver2;
 
-import java.util.Set;
 import java.util.HashSet;
 
 public class Field {

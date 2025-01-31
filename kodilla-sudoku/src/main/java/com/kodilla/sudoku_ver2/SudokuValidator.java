@@ -2,9 +2,7 @@ package com.kodilla.sudoku_ver2;
 
 import java.util.*;
 
-
 public class SudokuValidator {
-
 
     private static final int SIZE = 9; // Sudoku 9x9
     private static final int BLOCK_SIZE = 3; // Bloki 3x3
@@ -33,8 +31,6 @@ public class SudokuValidator {
                 validateBoxes(board);
     }
 
-
-    // 🔹 Walidacja bloków 3x3 z wykorzystaniem `boxId`
     private boolean validateBoxes(SudokuBoard board) {
         Map<Integer, List<Field>> boxMap = new HashMap<>();
 

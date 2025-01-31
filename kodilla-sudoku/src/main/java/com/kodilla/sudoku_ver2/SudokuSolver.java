@@ -52,5 +52,4 @@ public class SudokuSolver {
         }
         return true; // Jeśli nie znaleziono pustych pól, Sudoku jest rozwiązane!
     }
-
 }
