@@ -10,6 +10,7 @@ public class SudokuSolver {
         this.sudokuValidator = sudokuValidator;
     }
 
+
     public boolean solve(SudokuBoard board) {
         int size = board.getSIZE();
 

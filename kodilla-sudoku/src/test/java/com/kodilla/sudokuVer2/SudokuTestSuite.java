@@ -115,6 +115,7 @@ public class SudokuTestSuite {
             testBoard.setFieldValue(6,7,2);
             testBoard.setFieldValue(7,0,5);
             testBoard.setFieldValue(8,4,8);
+
 //              given
             boolean isSolved = solver.solve(testBoard);
 

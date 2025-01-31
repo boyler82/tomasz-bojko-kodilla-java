@@ -1,7 +1,7 @@
 package com.kodilla.sudokuVer2;
 import java.util.*;
 
-public class SudokuValidator {
+public class  SudokuValidator {
 
     private static final int SIZE = 9; // Sudoku 9x9
     private static final int BLOCK_SIZE = 3; // Bloki 3x3

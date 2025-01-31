@@ -5,5 +5,6 @@ public class SudokuApp {
     public static void main(String[] args) {
         new TheGame(new SudokuBoard()).run();
         System.out.println();
+
     }
 }
