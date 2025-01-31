@@ -112,6 +112,7 @@ public class SudokuBoard {
 
 
 
+
     // Wyświetlenie planszy Sudoku
     public void printBoard() {
         System.out.println("╔═══════╦═══════╦═══════╗");

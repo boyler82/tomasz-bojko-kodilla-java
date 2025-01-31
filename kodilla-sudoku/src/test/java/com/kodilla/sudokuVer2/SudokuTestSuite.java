@@ -108,6 +108,7 @@ public class SudokuTestSuite {
         @DisplayName("Rozwiazanie sudoku ze zmiennymi")
         void solveFieldBoard() {
 //              when
+
             testBoard.setFieldValue(0,0,4);
             testBoard.setFieldValue(2,4,7);
             testBoard.setFieldValue(3,1,9);

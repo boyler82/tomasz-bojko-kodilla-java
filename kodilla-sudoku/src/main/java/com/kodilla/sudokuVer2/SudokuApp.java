@@ -6,5 +6,6 @@ public class SudokuApp {
         new TheGame(new SudokuBoard()).run();
         System.out.println();
 
+
     }
 }

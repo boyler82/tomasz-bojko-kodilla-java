@@ -11,6 +11,7 @@ public class SudokuSolver {
     }
 
 
+
     public boolean solve(SudokuBoard board) {
         int size = board.getSIZE();
 
