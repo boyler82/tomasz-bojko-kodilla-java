@@ -1,20 +1,12 @@
-package com.kodilla.sudoku_ver2;
+package com.kodilla.sudokuVer2;
 
 import java.util.*;
 
 public class SudokuSolver {
 
-    private SudokuValidator sudokuValidator = new SudokuValidator();
+    private SudokuValidator sudokuValidator;
 
     public SudokuSolver(SudokuValidator sudokuValidator) {
-        this.sudokuValidator = sudokuValidator;
-    }
-
-    public SudokuValidator getSudokuValidator() {
-        return sudokuValidator;
-    }
-
-    public void setSudokuValidator(SudokuValidator sudokuValidator) {
         this.sudokuValidator = sudokuValidator;
     }
 

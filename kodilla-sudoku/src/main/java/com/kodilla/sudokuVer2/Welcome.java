@@ -1,4 +1,4 @@
-package com.kodilla.sudoku_ver2;
+package com.kodilla.sudokuVer2;
 
 public class Welcome {
     public void printWelcomeMessage() {
@@ -9,6 +9,7 @@ public class Welcome {
                 "╚════██║██║   ██║██╔═══╝ ██║   ██║██╔══██║██║   ██║\n" +
                 "███████║╚██████╔╝██║     ╚██████╔╝██║  ██║╚██████╔╝\n" +
                 "╚══════╝ ╚═════╝ ╚═╝      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ \n");
+
 
 
         System.out.println("\n✨ Witaj w grze Sudoku! ✨\n");

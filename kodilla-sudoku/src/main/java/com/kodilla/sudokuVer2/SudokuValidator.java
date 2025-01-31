@@ -1,5 +1,4 @@
-package com.kodilla.sudoku_ver2;
-
+package com.kodilla.sudokuVer2;
 import java.util.*;
 
 public class SudokuValidator {

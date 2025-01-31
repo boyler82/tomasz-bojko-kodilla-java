@@ -1,4 +1,4 @@
-package com.kodilla.sudoku_ver2;
+package com.kodilla.sudokuVer2;
 
 
 import org.junit.jupiter.api.BeforeEach;
@@ -116,7 +116,6 @@ public class SudokuTestSuite {
             testBoard.setFieldValue(7,0,5);
             testBoard.setFieldValue(8,4,8);
 //              given
-
             boolean isSolved = solver.solve(testBoard);
 
             // then

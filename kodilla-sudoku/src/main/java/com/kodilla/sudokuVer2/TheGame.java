@@ -1,7 +1,8 @@
-package com.kodilla.sudoku_ver2;
+package com.kodilla.sudokuVer2;
 
 import java.util.Objects;
 import java.util.Scanner;
+
 
 public class TheGame {
     private SudokuBoard sudokuBoard;
@@ -14,11 +15,6 @@ public class TheGame {
     public SudokuBoard getSudokuBoard() {
         return sudokuBoard;
     }
-
-    public void setSudokuBoard(SudokuBoard sudokuBoard) {
-        this.sudokuBoard = sudokuBoard;
-    }
-
 
 
     public void run() {

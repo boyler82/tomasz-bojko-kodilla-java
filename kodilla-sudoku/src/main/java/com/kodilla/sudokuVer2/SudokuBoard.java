@@ -1,4 +1,4 @@
-package com.kodilla.sudoku_ver2;
+package com.kodilla.sudokuVer2;
 
 import java.util.Random;
 
@@ -110,10 +110,6 @@ public class SudokuBoard {
         sudokuBoard[row][col].setValue(value);
     }
 
-    // Resetowanie dostępnych wartości w polu
-    public void resetField(int row, int col) {
-        sudokuBoard[row][col].resetAvailableNumbers();
-    }
 
     // Wyświetlenie planszy Sudoku
     public void printBoard() {
