@@ -1,4 +1,4 @@
-package com.kodilla.testing.shape;
+    package com.kodilla.testing.shape;
 
 import com.kodilla.testing.forum.ForumPost;
 import org.junit.jupiter.api.*;

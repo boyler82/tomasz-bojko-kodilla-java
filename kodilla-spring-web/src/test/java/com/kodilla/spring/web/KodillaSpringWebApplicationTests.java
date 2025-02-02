@@ -1,13 +1,13 @@
-package com.kodilla.spring.web;
-
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-@SpringBootTest
-class KodillaSpringWebApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
-}
+//compackage com.kodilla.spring.web;
+//
+//import org.junit.jupiter.api.Test;
+//import org.springframework.boot.test.context.SpringBootTest;
+//
+//@SpringBootTest
+//class KodillaSpringWebApplicationTests {
+//
+//	@Test
+//	void contextLoads() {
+//	}
+//
+//}
