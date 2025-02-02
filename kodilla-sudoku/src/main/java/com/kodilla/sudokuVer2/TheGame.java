@@ -58,8 +58,32 @@ public class TheGame {
                 System.out.println("🚪 Zakończono grę.");
                 break;
             } else if (input.equalsIgnoreCase("solve")) {
-                System.out.println("🤖 Rozwiązuję Sudoku...");
-                SudokuSolver solver = new SudokuSolver(new SudokuValidator());
+//
+//
+//                System.out.println("🤖 Rozwiązuję Sudoku...");
+//                SudokuSolver1 solver = new SudokuSolver1();
+                SudokuSolver solver = new SudokuSolver(new SudokuSolver1()); // Domyślny solver
+
+                System.out.println("Wybierz algorytm rozwiązania Sudoku :");
+                System.out.println("1 - Strategy 1");
+                System.out.println("2 - Strategy 2");
+                System.out.println("3 - Strategy 3");
+
+
+                Scanner solverScanner = new Scanner(System.in);
+                int solverChoice = solverScanner.nextInt();
+
+                switch (solverChoice) {
+                    case 1 -> solver.setStrategy(new SudokuSolver1());
+                    case 2 -> solver.setStrategy(new SudokuSolver2());
+                    case 3 -> solver.setStrategy(new SudokuSolver3());
+                    default -> System.out.println("Nieprawidłowy wybór, rozwiazuję domyślnie");
+                }
+
+                System.out.println("Rozpoczynam rozwiązywanie...");
+                boolean solved = solver.solve(sudokuBoard);
+
+
                 if (solver.solve(sudokuBoard)) {
                     System.out.println("✅ Sudoku rozwiązane!");
                 } else {
@@ -104,7 +128,7 @@ public class TheGame {
         // Jeśli Sudoku nie jest w pełni rozwiązane, automatycznie je rozwiązujemy
         if (!isSudokuSolved()) {
             System.out.println("🔄 Nie udało się ukończyć Sudoku, rozwiązuję...");
-            SudokuSolver solver = new SudokuSolver(new SudokuValidator());
+            SudokuSolver1 solver = new SudokuSolver1();
             solver.solve(sudokuBoard);
             sudokuBoard.printBoard();
             System.out.println("✅ Sudoku zostało dokończone przez solver.");

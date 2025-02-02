@@ -13,14 +13,14 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SudokuTestSuite {
 
     private SudokuBoard testBoard;
-    private SudokuValidator validator;
-    private SudokuSolver solver;
+
+    private SudokuSolver1 solver;
 
     @BeforeEach
     void setUp() {
         testBoard = new SudokuBoard();
-        validator = new SudokuValidator();
-        solver = new SudokuSolver(validator);
+
+        solver = new SudokuSolver1();
     }
 
     @Nested
@@ -70,10 +70,10 @@ public class SudokuTestSuite {
             assertEquals(1,testBoard.getField(0,1).getValue());
             assertEquals(1,testBoard.getField(1,0).getValue());
             assertEquals(1,testBoard.getField(1,1).getValue());
-            assertFalse(validator.validateBoardForDuplicate(testBoard,firstRowValue1));
-            assertFalse(validator.validateBoardForDuplicate(testBoard,firstRowValue2));
-            assertFalse(validator.validateBoardForDuplicate(testBoard,firstRowValue3));
-            assertFalse(validator.validateBoardForDuplicate(testBoard,firstRowValue4));
+            assertFalse(testBoard.validateBoardForDuplicate(testBoard,firstRowValue1));
+            assertFalse(testBoard.validateBoardForDuplicate(testBoard,firstRowValue2));
+            assertFalse(testBoard.validateBoardForDuplicate(testBoard,firstRowValue3));
+            assertFalse(testBoard.validateBoardForDuplicate(testBoard,firstRowValue4));
         }
 
         @Test
