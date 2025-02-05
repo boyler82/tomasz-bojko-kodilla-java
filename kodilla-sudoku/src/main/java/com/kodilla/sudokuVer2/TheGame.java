@@ -16,9 +16,6 @@ public class TheGame {
         return sudokuBoard;
     }
 
-
-
-
     public void run() {
         Scanner scanner = new Scanner(System.in);
         welcomeMessage.printWelcomeMessage();
@@ -58,8 +55,7 @@ public class TheGame {
                 System.out.println("🚪 Zakończono grę.");
                 break;
             } else if (input.equalsIgnoreCase("solve")) {
-//
-//
+
 //                System.out.println("🤖 Rozwiązuję Sudoku...");
 //                SudokuSolver1 solver = new SudokuSolver1();
                 SudokuSolver solver = new SudokuSolver(new SudokuSolver1()); // Domyślny solver

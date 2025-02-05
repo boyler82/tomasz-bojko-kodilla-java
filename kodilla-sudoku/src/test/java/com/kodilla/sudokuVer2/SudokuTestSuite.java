@@ -101,7 +101,7 @@ public class SudokuTestSuite {
             boolean isSolved = solver.solve(testBoard);
             testBoard.printBoard();
             // then
-            assertTrue(isSolved, "Solver powinien znaleźć rozwiązanie"); //mam tu folse czemu solver nie rozwiazuje sudoku?
+            assertTrue(isSolved, "Solver powinien znaleźć rozwiązanie");
         }
 
         @Test
@@ -121,10 +121,10 @@ public class SudokuTestSuite {
             boolean isSolved = solver.solve(testBoard);
 
             // then
-            assertTrue(isSolved, "Solver powinien znaleźć rozwiązanie"); //mam tu folse czemu solver nie rozwiazuje sudoku?
+            assertTrue(isSolved, "Solver powinien znaleźć rozwiązanie");
         }
-
     }
+//    durny test
     @Nested
     @DisplayName("Testy ogólne")
     class GeneralTestSuite {
@@ -132,9 +132,9 @@ public class SudokuTestSuite {
         @Test
         @DisplayName("Tworzenie pustego sudoku")
         void createEmptySudokuTest() {
-//              when
+//
             SudokuBoard emptyBoard = new SudokuBoard();
-//            given
+//            g
             Random random = new Random();
             int size = emptyBoard.getSIZE();
             int row = random.nextInt(9);
