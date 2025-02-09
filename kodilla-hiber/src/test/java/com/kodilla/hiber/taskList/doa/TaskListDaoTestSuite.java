@@ -29,6 +29,7 @@ public class TaskListDaoTestSuite {
     void setup() {
         taskListDao.deleteAll();
     }
+
     @AfterEach
     void cleanup() {
         taskListDao.deleteAll();
