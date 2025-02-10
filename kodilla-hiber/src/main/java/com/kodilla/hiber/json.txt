@@ -1,0 +1,27 @@
+{
+    "car_name": "Ford",
+    "model": "Mustang",
+    "seats": [
+        {
+            "position": "first",
+            "material": "leather",
+            "color": "black"
+        },
+        {
+            "position": "second",
+            "material": "leather",
+            "color": "black"
+        },
+        {
+            "position": "third",
+            "material": "leather",
+            "color": "black"
+        },
+        {
+            "position": "fourth",
+            "material": "leather",
+            "color": "black"
+        }
+    ],
+    "horsepower": 400
+}
