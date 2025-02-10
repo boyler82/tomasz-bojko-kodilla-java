@@ -24,7 +24,7 @@ public class TaskFinancialDetails {
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @NotNull
     @Column(name = "ID", unique = true)
     public int getId() {

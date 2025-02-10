@@ -34,7 +34,7 @@ public class TaskList {
         return description;
     }
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @NotNull
     @Column(name = "ID", unique = true)
     public int getId() {
