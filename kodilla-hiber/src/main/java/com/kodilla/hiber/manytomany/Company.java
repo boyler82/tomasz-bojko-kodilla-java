@@ -8,6 +8,10 @@ import java.util.List;
 
 @Entity
 @Table(name = "COMPANIES")
+@NamedQuery(
+        name = "Company.findByFirstThreeLetters",
+        query = "FROM Company WHERE SUBSTRING(name, 1, 3) = :prefix"
+)
 public class Company {
 
     private int id;
