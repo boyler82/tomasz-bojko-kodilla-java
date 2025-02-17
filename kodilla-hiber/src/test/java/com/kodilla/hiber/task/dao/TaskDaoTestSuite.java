@@ -80,7 +80,7 @@ class TaskDaoTestSuite {
 //        CleanUp
         taskDao.deleteById(id);
     }
-
+//
 //    @Test
 //    void testNamedQueries() {
 //        //Given

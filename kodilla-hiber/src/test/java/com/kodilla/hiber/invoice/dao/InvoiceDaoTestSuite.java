@@ -1,7 +1,9 @@
 package com.kodilla.hiber.invoice.dao;
 
+import com.kodilla.hiber.invoice.Invoice;
 import com.kodilla.hiber.invoice.Item;
 import com.kodilla.hiber.invoice.Product;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,6 +16,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+
 @SpringBootTest
 public class InvoiceDaoTestSuite {
 
@@ -23,6 +26,10 @@ public class InvoiceDaoTestSuite {
     @Autowired
     private ItemDao itemDao;
 
+    @Autowired
+    private InvoiceDao invoiceDao;
+
+    private Invoice ticketInvoice;
     private Product product;
     private Item item1;
     private Item item2;
@@ -33,33 +40,43 @@ public class InvoiceDaoTestSuite {
     void setup() {
         productDao.deleteAll();
         itemDao.deleteAll();
+        invoiceDao.deleteAll();
     }
 
     @AfterEach
     void cleanup() {
         productDao.deleteAll();
         itemDao.deleteAll();
+        invoiceDao.deleteAll();
     }
 
     @Test
+    @Transactional
     void testInvoiceDaoSave() {
 //        given
         product = new Product("Bus ticket");
-        item1 = new Item(product, BigDecimal.valueOf(100), 1);
-        item2 = new Item(product, BigDecimal.valueOf(100), 2);
-//        when
-        product.getItems().add(item1);
-        product.getItems().add(item2);
         productDao.save(product);
-        int productId = product.getId();
+
+        ticketInvoice = new Invoice("PKS invoice");
+        invoiceDao.save(ticketInvoice);
+
+        item1 = new Item(product, BigDecimal.valueOf(100), 1);
+        item2 = new Item(product, BigDecimal.valueOf(50), 2);
+
+        item1.setInvoice(ticketInvoice);
+        item2.setInvoice(ticketInvoice);
+
+        ticketInvoice.getItems().add(item1);
+        ticketInvoice.getItems().add(item2);
+
+        itemDao.save(item1);
+        itemDao.save(item2);
+
+        int invoiceId = ticketInvoice.getId();
+
 //        then
-
-        Optional<Product> retrievedProduct = productDao.findById(productId);
-        assertTrue(retrievedProduct.isPresent());
-        assertEquals("Bus ticket", retrievedProduct.get().getName());
-//        assertEquals(200, retrievedProduct.get().getItems().get(1).getValue()); czemu nie moge tego sprawdzic?
-
-
-
+        Optional<Invoice> retrievedInvoice = invoiceDao.findById(invoiceId);
+        assertTrue(retrievedInvoice.isPresent());
+        assertEquals(2, retrievedInvoice.get().getItems().size());
     }
 }

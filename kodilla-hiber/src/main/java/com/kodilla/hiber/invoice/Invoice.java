@@ -1,49 +1,63 @@
 package com.kodilla.hiber.invoice;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+
+
 import java.util.ArrayList;
 import java.util.List;
+
 @Entity
-@Table(name = "PRODUCTS")
-public class Product {
+@Table(name = "INVOICE")
+public class Invoice {
+
     private int id;
     private String name;
+
     private List<Item> items = new ArrayList<>();
 
-    public Product() {}
 
-    public Product(String name) {
+    public Invoice() {
+    }
+
+    public Invoice(String name) {
         this.name = name;
     }
 
     @Id
-    @NotNull
     @GeneratedValue
-    @Column(name = "PRODUCT_ID", unique = true)
+    @NotNull
+    @Column(name = "ID_INVOICE", unique = true)
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
-    @Column(name = "PRODUCT_NAME")
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
+
     @OneToMany(
             targetEntity = Item.class,
-            mappedBy = "product",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
+            mappedBy = "invoice",
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE}, // Dodaj PERSIST
+            fetch = FetchType.EAGER
     )
     public List<Item> getItems() {
         return items;
     }
+
+
+
     public void setItems(List<Item> items) {
         this.items = items;
     }
 
+    @Column(name = "INVOICE_NAME")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
