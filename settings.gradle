@@ -13,3 +13,7 @@ include 'kodilla-patterns'
 include 'kodilla-jdbc'
 include 'kodilla-sudoku'
 include 'kodilla-hiber'
+include 'patern2'
+include 'kodilla-patern2'
+include 'kodilla-sql'
+
