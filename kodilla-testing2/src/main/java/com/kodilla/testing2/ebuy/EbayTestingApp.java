@@ -7,13 +7,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class EbayTestingApp {
-    public static final String SEARCHFIELD = "_nkw";                       // [1]
+    public static final String SEARCHFIELD = "_nkw";
 
     public static void main(String[] args) {
-        WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME); // [2]
-        driver.get("https://www.ebay.pl");                                 // [3]
+        WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
+        driver.get("https://www.ebay.pl");
 
-//        driver.findElement(By.xpath("//*[@id=\"L2AGLb\"]/div")).click();
 
         WebElement searchField = driver.findElement(By.name(SEARCHFIELD));
         searchField.sendKeys("laptop");

@@ -1,5 +1,4 @@
 package com.kodilla.testing2.ebuy.config;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
