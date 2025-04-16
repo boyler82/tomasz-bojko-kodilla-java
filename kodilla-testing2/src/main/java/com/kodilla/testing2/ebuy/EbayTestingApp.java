@@ -13,7 +13,6 @@ public class EbayTestingApp {
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
         driver.get("https://www.ebay.pl");
 
-
         WebElement searchField = driver.findElement(By.name(SEARCHFIELD));
         searchField.sendKeys("laptop");
         searchField.submit();
